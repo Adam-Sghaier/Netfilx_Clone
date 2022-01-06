@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+{% block title %}Netflix - Profile{% endblock %}
+{% block body %}
+<div class="container my-5">
+    <div class="jumbotron jumbotron-dark bg-darkness">
+        <h1 class="display-4">Hello {{user.email}}</h1>
+        <hr>
+        <h4 class="title-home">Likes :</h1>
+        <div class="box">
+            {% for like in user.likes %}
+            <div>
+                <a href="show/{{like.id}}"><img src="{{like.img}}" alt="{{like.title}} jacket"></a>
+                <form method="POST" action="{{ path('dislike') }}">
+                    <input type="text" name="id" value="{{like.id}}" style="display: none">
+                    <button type="submit"><i class="fas fa-trash sub-nav-logo"></i></button>
+                </form>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

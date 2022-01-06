@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+{% block title %}Netflix - Home{% endblock %}
+{% block body %}
+<section class="main-container">
+    <div class="location" id="home">
+        <h1 id="home" class="title-home">Popular on Netflix</h1>
+        <div class="box">
+            {% for movie in popular %}
+            <a href="/show/{{movie.id}}"><img src="{{movie.img}}" alt="{{movie.title}} jacket"></a>
+            {% endfor %}
+        </div>
+    </div>
+    <h1 id="tvShows" class="title-home">TV Shows</h1>
+    <div class="box">
+        {% for movie in tvShows %}
+        <a href="/show/{{movie.id}}"><img src="{{movie.img}}" alt="{{movie.title}} jacket"></a>
+        {% endfor %}
+    </div>
+    <h1 id="movies" class="title-home">Movies</h1>
+    <div class="box">
+        {% for movie in movies %}
+        <a href="/show/{{movie.id}}"><img src="{{movie.img}}" alt="{{movie.title}} jacket"></a>
+        {% endfor %}
+    </div>
+    <h1 id="originals" class="title-home">Netflix Originals</h1>
+    <div class="box">
+        {% for movie in originals %}
+        <a href="/show/{{movie.id}}"><img src="{{movie.img}}" alt="{{movie.title}} jacket"></a>
+        {% endfor %}
+    </div>
+</section>
+
+<audio autoplay>
+    <source src="{{ asset('assets/medias/netflix-sound-effect.mp3') }}" type="audio/mp3">
+    Your browser does not support the audio element.
+</audio>
+{% endblock %}
